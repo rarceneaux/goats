@@ -3,21 +3,23 @@ import PropTypes from 'prop-types';
 
 import Goat from '../Goat/Goat';
 import goatShape from '../../helpers/propz/goatShape';
+import './GoatCoral.scss';
 
 class GoatCoral extends React.Component {
   static propTypes = {
-    butts: PropTypes.arrayOf(goatShape.goatShape),
+    money: PropTypes.arrayOf(goatShape.goatShape),
     freeGoat: PropTypes.func,
+    useGoat: PropTypes.func,
   }
 
   render() {
-    const myGoats = this.props.butts;
-    const { freeGoat } = this.props;
+    const myGoats = this.props.money;
+    const { freeGoat, useGoat } = this.props;
 
-    const goatCards = myGoats.map((goat) => <Goat key={goat.id} goat={goat} freeGoat={freeGoat} />);
+    const goatCards = myGoats.map((goat) => <Goat key={goat.id} goat={goat} freeGoat={freeGoat} useGoat={useGoat}/>);
 
     return (
-      <div className="goatCoral">
+      <div className="GoatCoral row">
       {goatCards}
       </div>
     );
